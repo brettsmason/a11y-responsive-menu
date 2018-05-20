@@ -1,0 +1,41 @@
+{
+  "name": "responsive-menu",
+  "version": "1.0.0",
+  "description": "An accessible  responsive accordion to dropdown menu solution.",
+  "main": "src/responsive-menu.js",
+  "scripts": {
+    "dev": "webpack --env.development",
+    "build": "webpack -p --env.production",
+    "watch": "npm run dev -- --watch && webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brettsmason/responsive-menu.git"
+  },
+  "author": "Brett Mason",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/brettsmason/responsive-menu/issues"
+  },
+  "homepage": "https://github.com/brettsmason/responsive-menu#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "babel-loader": "^8.0.0-beta.2",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-cli": "^5.0.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.4",
+    "postcss-scss": "^1.0.5",
+    "sass-loader": "^6.0.7",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
+  }
+}

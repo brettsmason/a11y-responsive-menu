@@ -1,0 +1,128 @@
+.menu {
+	// Reset the base <ul>
+	&__items {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+    display: none;
+
+    [aria-expanded="true"] + & {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+	}
+
+	// Styles for <li>
+	&__item {
+		display: block;
+
+    &--has-children {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+    }
+	}
+
+	&__anchor {
+		padding: 10px;
+		display: block;
+		line-height: 1.2;
+		font-weight: bold;
+		color: #111;
+    text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: #000;
+		}
+
+		.menu__item--current & {
+			color: #000;
+		}
+	}
+
+	// The sub-menus
+	&__sub-menu {
+		transition: all 0.3s ease;
+		background-color: #fff;
+		display: flex;
+		flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+		// Make sure <li> items within a submenu are full width
+		& > .menu__item {
+			margin: 0;
+			padding: 0;
+    }
+	}
+
+  &__toggle {
+    @media (min-width: 800px) {
+      display: none;
+    }
+  }
+
+  &__submenu-toggle {
+    background: #ccc;
+    border: none;
+    width: 40px;
+  }
+}
+
+.menu--is-mobile {
+  .menu__anchor {
+    flex: 1 1 0px;
+  }
+
+  .menu__sub-menu {
+    width: 100%;
+		flex-direction: column;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  [aria-expanded="true"] + .menu__sub-menu {
+    max-height: 50em;
+    visibility: visible;
+  }
+}
+
+.menu--is-desktop {
+  .menu__items {
+    flex-direction: row;
+    display: flex;
+  }
+
+  > .menu__item + .menu__item {
+    margin-left: 10px;
+  }
+
+  .menu__sub-menu {
+		visibility: hidden;
+		min-width: 5rem;
+		position: absolute;
+		left: 0;
+		margin: 0;
+		padding: 0;
+    top: 100%;
+  }
+
+  .menu__submenu .menu__submenu {
+    right: auto;
+    left: 100%;
+    top: 0;
+  }
+
+  // Display our submenus if any of these conditions are met
+	.menu__item:hover > .menu__sub-menu,
+	// &__item:focus-within > &__sub-menu,
+	.menu__sub-menu:hover,
+	.menu__sub-menu:focus,
+  .is-toggled + .menu__sub-menu {
+		visibility: visible;
+	}
+}
